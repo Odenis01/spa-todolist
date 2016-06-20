@@ -1,0 +1,49 @@
+﻿<section class="content-header">
+    <h1>Categorias <small>TodoList</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Painel</a></li>
+        <li class="active">Categorias</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>                        
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="categoria in vm.categorias">                        
+                        <td><a href="javascript:void(0)" ng-click="SelecionarCategoria(categoria.id)">{{ categoria.descricao }}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div class="box box-primary">
+                <form name="editorCategoriaForm" ng-submit="SalvarCategoria()">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Cód.</label><br />
+                            <span>{{ vm.categoria.id }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Descrição</label>
+                            <input type="text" class="form-control" name="descricao" ng-model="vm.categoria.descricao" placeholder="Descrição da Categoria">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Salvar">
+                            <div class="btn-group pull-right">
+                                <a href="javascript:void(0)" class="btn" ng-click="NovaCategoria()"><i class="fa fa-plus-square"></i> Novo</a>
+                                <a style="display:none;" href="javascript:void(0)" class="btn" ng-click="ApagarCategoria()"><i class="fa fa-minus-square"></i> Exlcuir</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

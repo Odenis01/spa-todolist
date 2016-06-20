@@ -1,0 +1,45 @@
+﻿<section class="content-header">
+    <h1>Detalhes da Tarefa <small>TodoList</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#/">Painel</a></li>
+        <li><a href="#/produtos">Tarefas</a></li>
+        <li class="active">{{ vm.tarefa.titulo}}</li>
+    </ol>
+</section>
+
+<section class="content invoice">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                <i class="fa fa-globe"></i> {{ vm.tarefa.titulo }}
+                <small class="pull-right">{{ vm.tarefa.categoria.descricao }}</small>
+            </h2>
+        </div>
+    </div>
+
+    <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+            <strong>Título:</strong> {{ vm.tarefa.titulo }}<br />
+            <strong>Data de criação:</strong> {{ vm.tarefa.dataCriacao | date:'dd/MM/yyyy' }}<br />
+            <strong>Categoria:</strong> {{ vm.tarefa.categoria.descricao }}<br />
+            <strong>Usuario:</strong> {{ vm.tarefa.usuario.nome}}<br />
+            <strong>Email:</strong> {{ vm.tarefa.usuario.email}}<br />
+            <strong>Prioridade:</strong> {{ vm.tarefa.prioridade }}<br />
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-xs-6">
+            <p class="lead">Descrição:</p>            
+            <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                {{ vm.tarefa.descricao }}
+            </p>
+
+            <a href="javascript:void(0)" class="btn-lg btn-success" ng-hide="vm.tarefa.finalizada" ng-click="FinalizarTarefa()"><i class="fa fa-road"></i> Finalizar</a>
+            <a href="javascript:void(0)" class="btn-lg btn-primary" ng-show="vm.tarefa.finalizada" ng-click="go('/')"><i class="fa fa-arrow-left"></i> Voltar</a>
+        </div>
+        
+    </div>
+</section>

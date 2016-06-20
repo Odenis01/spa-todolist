@@ -1,0 +1,38 @@
+﻿<section class="content-header">
+    <h1>{{ vm.titulo }} <small>TodoList</small></h1>
+    <ol class="breadcrumb">
+        <li class="active">{{ vm.titulo }}</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-3 pull-right">
+            <input class="form-control" placeholder="Filtrar" ng-model="FilterTarefaInput" />
+        </div>
+    </div>
+    <div class="clearfix">
+        <br />&nbsp;
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-xs-6" ng-repeat="tarefa in vm.tarefas | filter: FilterTarefaInput">
+            <div ng-class="{true:'small-box bg-green',false:'small-box bg-red'}[tarefa.finalizada]">
+                <div class="inner">
+                    <h3>
+                        {{ tarefa.titulo }}
+                    </h3>
+                    <h4>
+                        {{ tarefa.descricao }}
+                    </h4>
+                    
+                </div>
+                <div class="icon">
+                    <i class="ion ion-ios7-ion-clipboard"></i>
+                </div>
+                <a ng-href="#/tarefas/{{ tarefa.id }}" class="small-box-footer">
+                    Detalhes <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
